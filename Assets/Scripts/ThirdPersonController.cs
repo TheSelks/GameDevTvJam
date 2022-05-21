@@ -24,6 +24,8 @@ namespace StarterAssets
 		public float RotationSmoothTime = 0.12f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
+        [Tooltip("Camera Sensitivity")] 
+        public float Sensitivity = 1f;
 
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
@@ -87,6 +89,7 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
+        private bool _rotateOnMove = true;
 
 		private const float _threshold = 0.01f;
 
@@ -161,8 +164,8 @@ namespace StarterAssets
 				//Don't multiply mouse input by Time.deltaTime;
 				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 				
-				_cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
-				_cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+				_cinemachineTargetYaw += _input.look.x * Sensitivity * deltaTimeMultiplier;
+				_cinemachineTargetPitch += _input.look.y * Sensitivity * deltaTimeMultiplier;
 			}
 
 			// clamp our rotations so our values are limited 360 degrees
@@ -217,8 +220,11 @@ namespace StarterAssets
 				float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, RotationSmoothTime);
 
 				// rotate to face input direction relative to camera position
-				transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
-			}
+                if (_rotateOnMove)
+                {
+                    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                }
+            }
 
 
 			Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
@@ -321,5 +327,15 @@ namespace StarterAssets
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
+
+        public void SetSensitivity(float newSensitivity)
+        {
+            Sensitivity = newSensitivity;
+        }
+
+        public void SetRotateOnMove(bool newRotateOnMove)
+        {
+            _rotateOnMove = newRotateOnMove;
+        }
 	}
 }
