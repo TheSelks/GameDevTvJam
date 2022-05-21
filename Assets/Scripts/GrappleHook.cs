@@ -24,7 +24,7 @@ public class RopeControl : MonoBehaviour
     public float grappleCooldown;
     private float range;
     public Camera mainCamera;
-    // public AudioManager audioManager;
+    public Audio audioManager;
 
     // Add player position and an empty slot for the first rpe node to contacts array.
     //Set grapple settings and fetch range from PlayerPrefs
@@ -36,7 +36,7 @@ public class RopeControl : MonoBehaviour
         platforms = GameObject.Find("Platforms").GetComponent<CompositeCollider2D>();
         GetCompositeShapes();
         range = ranges[PlayerPrefs.GetInt("grappleRange", 0)];
-        // audioManager = GameObject.Find("LevelManager").GetComponent<AudioManager>();
+        audioManager = GameObject.Find("LevelManager").GetComponent<Audio>();
     }
 
     //Create a Vector2 array of all contactable points, to use when rounding corners.  Stops rope 'sticking' to closer points on the same surface
@@ -169,7 +169,7 @@ public class RopeControl : MonoBehaviour
             if (hit.collider != null)
             {
 
-                // audioManager.PlaySoundComplete("Grapple");
+                audioManager.PlaySoundComplete("Grapple");
                 contacts[1] = hit.point + (hit.normal.normalized * 0.1f);
                 contacts[0] = ropeShooter.transform.position;
                 contacts.RemoveRange(1, contacts.Count - 2);
