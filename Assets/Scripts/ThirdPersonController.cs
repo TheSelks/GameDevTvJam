@@ -127,9 +127,9 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
-		}
+        }
 
-		private void LateUpdate()
+        private void LateUpdate()
 		{
 			CameraRotation();
 		}
@@ -337,5 +337,5 @@ namespace StarterAssets
         {
             _rotateOnMove = newRotateOnMove;
         }
-	}
+    }
 }
