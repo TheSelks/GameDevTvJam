@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
@@ -96,6 +98,9 @@ namespace StarterAssets
 		private bool _hasAnimator;
 
 		private bool IsCurrentDeviceMouse => _playerInput.currentControlScheme == "KeyboardMouse";
+
+		public KeyCode actionKey = KeyCode.E;
+		public ButtonDoor buttonDoor;
 
 		private void Awake()
 		{
@@ -337,5 +342,26 @@ namespace StarterAssets
         {
             _rotateOnMove = newRotateOnMove;
         }
+
+        private void OnTriggerStay(Collider other)
+        {
+			switch (other.gameObject.name)
+			{
+				case "Button":
+					Debug.Log("hi");
+					if (Input.GetKeyDown(KeyCode.E))
+					{
+						//Debug.Log("hi");
+						buttonDoor.open();
+						StartCoroutine(Timer());
+						IEnumerator Timer()
+						{
+							yield return new WaitForSeconds(5f);
+							buttonDoor.closed();
+						}
+					}
+					break;
+			}
+		}
     }
 }
