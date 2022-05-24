@@ -18,11 +18,21 @@ public class PrecisionControls : MonoBehaviour
     private ThirdPersonController thirdPersonController;
     private StarterAssetsInputs starterAssetsInputs;
 
+    private Vector3 characterVelocity;
+
     private Vector3 grapplePosition;
     private float oldGravity = -15f;
 
-    [Tooltip("This will alter the speed that you travel towards grapple target.")]
-    [SerializeField] float grappleSpeed = 20f;
+    [Tooltip("This will alter the minimum speed that you travel towards grapple target.")] 
+    [SerializeField] private float grappleSpeedMin = 10f;
+
+    [Tooltip("This will alter the minimum speed that you travel towards grapple target.")] 
+    [SerializeField] private float grappleSpeedMax = 40f;
+
+    [Tooltip("This multiplier will adjust travel speed for grapple")] 
+    private float grappleSpeedMultiplier = 2f;
+
+    [SerializeField] float grappleSpeed = 0;
 
     private State state;
 
@@ -92,7 +102,7 @@ public class PrecisionControls : MonoBehaviour
 
     private void HandleGrappleStart()
     {
-        if (starterAssetsInputs.fire)
+        if (GrappleInput())
         {
             if(Physics.Raycast(Camera.main.ScreenPointToRay(screenCentrePoint), out RaycastHit raycastHit))
             {
@@ -115,17 +125,33 @@ public class PrecisionControls : MonoBehaviour
     private void HandleGrappleMovement()
     {
         Vector3 grappleDirection = (grapplePosition - transform.position).normalized;
-
+        grappleSpeed = Mathf.Clamp(Vector3.Distance(transform.position, grapplePosition), grappleSpeedMin,
+            grappleSpeedMax);
         
 
-        characterController.Move(grappleDirection * grappleSpeed * Time.deltaTime);
+        characterController.Move(grappleDirection * grappleSpeed * grappleSpeedMultiplier * Time.deltaTime);
 
         float reachedDistance = 2f;
         if (Vector3.Distance(transform.position, grapplePosition) < reachedDistance)
         {
-            state = State.Normal;
-            thirdPersonController.Gravity = oldGravity;
-            thirdPersonController.enabled = true;
+            CancelGrapple();
         }
+
+        if (GrappleInput())
+        {
+            CancelGrapple();
+        }
+    }
+
+    private void CancelGrapple()
+    {
+        state = State.Normal;
+        thirdPersonController.Gravity = oldGravity;
+        thirdPersonController.enabled = true;
+    }
+
+    private bool GrappleInput()
+    {
+        return starterAssetsInputs.fire;
     }
 }
