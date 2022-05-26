@@ -117,7 +117,6 @@ namespace StarterAssets
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 			_playerInput = GetComponent<PlayerInput>();
-			//_animator = GetComponent<Animator>();
 
 			AssignAnimationIDs();
 
@@ -144,7 +143,7 @@ namespace StarterAssets
 		{
 			_animIDSpeed = Animator.StringToHash("Speed");
 			_animIDGrounded = Animator.StringToHash("Grounded");
-			_animIDJump = Animator.StringToHash("Jump");
+			_animIDJump = Animator.StringToHash("Jumping");
 			_animIDFreeFall = Animator.StringToHash("FreeFall");
 			_animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
 		}
@@ -238,24 +237,6 @@ namespace StarterAssets
 			// move the player
 			_controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
-			/*if (targetDirection != Vector3.zero)
-			{
-				if (_animator.GetBool("jumping") == true)
-				{
-					return;
-				}
-				else if (_animator.GetBool("jumping") == false)
-				{
-					_animator.SetBool("walking", true);
-					_animator.SetInteger("state", 2);
-				}
-			}
-			else
-			{
-				_animator.SetBool("walking", false);
-				_animator.SetInteger("state", 0);
-			}*/
-			
 			// update animator if using character
 			if (_hasAnimator)
 			{

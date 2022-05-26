@@ -9,6 +9,7 @@ public class BasicRigidBodyPush : MonoBehaviour
 	private void OnControllerColliderHit(ControllerColliderHit hit)
 	{
 		if (canPush) PushRigidBodies(hit);
+        
 	}
 
 	private void PushRigidBodies(ControllerColliderHit hit)
@@ -28,7 +29,7 @@ public class BasicRigidBodyPush : MonoBehaviour
 
 		// Calculate push direction from move direction, horizontal motion only
 		Vector3 pushDir = new Vector3(hit.moveDirection.x, 0.0f, hit.moveDirection.z);
-
+		
 		// Apply the push and take strength into account
 		body.AddForce(pushDir * strength, ForceMode.Impulse);
 	}
