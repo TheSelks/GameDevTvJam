@@ -101,6 +101,10 @@ namespace StarterAssets
 
 		public KeyCode actionKey = KeyCode.E;
 		public ButtonDoor buttonDoor;
+		public Mirror mirror1;
+		public Mirror mirror2;
+		public Mirror mirror3;
+		public Mirror mirror4;
 
 		private void Awake()
 		{
@@ -359,6 +363,34 @@ namespace StarterAssets
 							yield return new WaitForSeconds(5f);
 							buttonDoor.closed();
 						}
+					}
+					break;
+				case "Mirror 1":
+					Debug.Log("hi");
+					if (Input.GetKeyDown(KeyCode.E))
+                    {
+						mirror1.rotate();
+                    }
+					break;
+				case "Mirror 2":
+					Debug.Log("hi");
+					if (Input.GetKeyDown(KeyCode.E))
+					{
+						mirror2.rotate();
+					}
+					break;
+				case "Mirror 3":
+					Debug.Log("hi");
+					if (Input.GetKeyDown(KeyCode.E))
+					{
+						mirror3.rotate();
+					}
+					break;
+				case "Mirror 4":
+					Debug.Log("hi");
+					if (Input.GetKeyDown(KeyCode.E))
+					{
+						mirror4.rotate();
 					}
 					break;
 			}
