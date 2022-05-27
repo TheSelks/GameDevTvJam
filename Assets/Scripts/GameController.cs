@@ -10,16 +10,20 @@ public class GameController : MonoBehaviour
     public void mirrorCorrect()
     {
         correctMirrors += 1;
-        if(correctMirrors == 4)
-        {
-            mirrorDoor.open();
-        }
     }
 
     public void mirrorWrong()
     {
         correctMirrors -= 1;
-        if (correctMirrors < 4)
+    }
+
+    private void Update()
+    {
+        if (correctMirrors == 4)
+        {
+            mirrorDoor.open();
+        }
+        else if (correctMirrors < 4)
         {
             mirrorDoor.closed();
         }

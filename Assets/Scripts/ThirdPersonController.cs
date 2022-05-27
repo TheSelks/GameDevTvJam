@@ -136,7 +136,12 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
-        }
+
+			if (Input.GetKeyDown(KeyCode.E))
+			{
+				Debug.Log("hi");
+			}
+		}
 
         private void LateUpdate()
 		{

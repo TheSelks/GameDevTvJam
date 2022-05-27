@@ -26,16 +26,13 @@ public class Mirror : MonoBehaviour
     }
     private void rotationCheck()
     {
-        if (positiveRotations > 1)
+        if (Mathf.RoundToInt(transform.eulerAngles.y) == correctRotation[0] && correct == false)
         {
-            if ((int)transform.eulerAngles.y == correctRotation[0] && correct == false)
-            {
-                positivePlacementResult();
-            }
-            else if (correct == true)
-            {
-                positivePlacementResultChanged(correct);
-            }
+            positivePlacementResult();
+        }
+        else if (correct == true)
+        {
+            positivePlacementResultChanged(correct);
         }
     }
     public void rotate()
