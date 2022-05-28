@@ -12,10 +12,14 @@ public class EnemyAI : MonoBehaviour
     public List<Transform> patrolPoints;
     int patrolPointIndex;
     Vector3 patrolPointPosition;
+    private Animator _animator;
+
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -40,6 +44,9 @@ public class EnemyAI : MonoBehaviour
         {
             agent.SetDestination(target.transform.position);
         }
+        
+
+        _animator.SetFloat("Speed", agent.speed);
     }
 
     bool isPlayerInVisionDistance()
@@ -48,3 +55,4 @@ public class EnemyAI : MonoBehaviour
         return distanceToPlayer <= enemyVisionDistance;
     }
 }
+
