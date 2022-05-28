@@ -24,7 +24,7 @@ public class Mirror : MonoBehaviour
     }
     private void rotationCheck()
     {
-        if (Mathf.RoundToInt(transform.eulerAngles.y) == correctRotation[0] || Mathf.RoundToInt(transform.eulerAngles.y) == correctRotation[1] && correct == false)
+        if (Mathf.RoundToInt(transform.eulerAngles.y) == correctRotation[0] && correct == false)
         {
             positivePlacementResult();
         }
