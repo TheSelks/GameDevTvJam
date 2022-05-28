@@ -139,11 +139,6 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
-
-			if (Input.GetKeyDown(KeyCode.E))
-			{
-				Debug.Log("hi");
-			}
 		}
 
         private void LateUpdate()
@@ -403,6 +398,11 @@ namespace StarterAssets
         public void Hit()
         {
             health.ChangeHealth(false);
+        }
+
+        public void Heal()
+        {
+			health.ChangeHealth(true);
         }
     }
 }

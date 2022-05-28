@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - BatCube
+  - Enemy
   layers:
   - Default
   - TransparentFX
