@@ -106,8 +106,11 @@ namespace StarterAssets
 		public Mirror mirror3;
 		public Mirror mirror4;
 
+        private Health health;
+
 		private void Awake()
 		{
+			health = GetComponent<Health>();
 			// get a reference to our main camera
 			if (_mainCamera == null)
 			{
@@ -393,7 +396,13 @@ namespace StarterAssets
 						mirror4.rotate();
 					}
 					break;
-			}
-		}
+            }
+        }
+
+
+        public void Hit()
+        {
+            health.ChangeHealth(false);
+        }
     }
 }
