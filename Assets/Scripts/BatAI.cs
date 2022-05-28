@@ -6,14 +6,17 @@ public class BatAI : MonoBehaviour
 {
     private static readonly float mRadiusSquaredDistance = 5.0f;
     private static readonly float mMaxVelocity = 1.0f;
-    private static readonly float mMaxCubeExtent = 3.0f;
-    private static readonly float mMaxCubeExtentX = 9.5f;
+    private static readonly float mMaxCubeExtent = 3.0f/2;
+    private static readonly float mMaxCubeExtentX = 9.5f/2;
+
+    private Transform cube;
     
     private int mID = 0;
     private Vector3 mVelocity = new Vector3();
 
     void Start()
     {
+        cube = GameObject.FindGameObjectWithTag("BatCube").GetComponent<Transform>();
         mVelocity = transform.forward;
         mVelocity = Vector3.ClampMagnitude( mVelocity, mMaxVelocity );
     }
@@ -35,36 +38,36 @@ public class BatAI : MonoBehaviour
     {
         Vector3 position = transform.position;
 
-        if( position.x >= mMaxCubeExtentX )
+        if( position.x >= cube.position.x + mMaxCubeExtentX )
         {
-            position.x = mMaxCubeExtentX - 0.2f;
+            position.x = cube.position.x + mMaxCubeExtentX - 0.2f;
             mVelocity.x *= -1;
         }
-        else if( position.x <= -mMaxCubeExtentX )
+        else if( position.x <= -mMaxCubeExtentX + cube.position.x )
         {
-            position.x = -mMaxCubeExtentX + 0.2f;
+            position.x = cube.position.x + -mMaxCubeExtentX + 0.2f;
             mVelocity.x *= -1;
         }
 
-        if( position.y >= mMaxCubeExtent )
+        if( position.y >= cube.position.y + mMaxCubeExtent )
         {
-            position.y = mMaxCubeExtent - 0.2f;
+            position.y = cube.position.y + mMaxCubeExtent - 0.2f;
             mVelocity.y *= -1;
         }
-        else if( position.y <= -mMaxCubeExtent )
+        else if( position.y <= -mMaxCubeExtent + cube.position.y )
         {
-            position.y = -mMaxCubeExtent + 0.2f;
+            position.y = cube.position.y -mMaxCubeExtent + 0.2f;
             mVelocity.y *= -1;
         }
 
-        if( position.z >= mMaxCubeExtent )
+        if( position.z >= cube.position.z + mMaxCubeExtent )
         {
-            position.z = mMaxCubeExtent - 0.2f;
+            position.z = cube.position.z + mMaxCubeExtent - 0.2f;
             mVelocity.z *= -1;
         }
-        else if( position.z <= -mMaxCubeExtent )
+        else if( position.z <= -mMaxCubeExtent + cube.position.z )
         {
-            position.z = -mMaxCubeExtent + 0.2f;
+            position.z = cube.position.z + -mMaxCubeExtent + 0.2f;
             mVelocity.z *= -1;
         }
 

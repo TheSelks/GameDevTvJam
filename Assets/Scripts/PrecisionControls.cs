@@ -106,9 +106,6 @@ public class PrecisionControls : MonoBehaviour
         {
             if(Physics.Raycast(Camera.main.ScreenPointToRay(screenCentrePoint), out RaycastHit raycastHit))
             {
-
-                // Something has been hit
-                Debug.Log("Hit");
                 thirdPersonController.enabled = false;
 
                 grapplePosition = raycastHit.point;

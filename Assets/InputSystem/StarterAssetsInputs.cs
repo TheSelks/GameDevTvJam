@@ -14,6 +14,7 @@ namespace StarterAssets
 		public bool sprint;
         public bool aim;
         public bool fire;
+        public bool use;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -58,6 +59,11 @@ namespace StarterAssets
             FireInput(value.isPressed);
         }
 
+        public void OnUse(InputValue value)
+        {
+            UseInput(value.isPressed);
+        }
+
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -91,6 +97,11 @@ namespace StarterAssets
         private void FireInput(bool newFireState)
         {
             fire = newFireState;
+        }
+
+        private void UseInput(bool newUseState)
+        {
+            use = newUseState;
         }
 
 #if !UNITY_IOS || !UNITY_ANDROID

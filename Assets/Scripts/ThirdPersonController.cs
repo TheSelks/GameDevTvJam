@@ -152,7 +152,7 @@ namespace StarterAssets
 		{
 			_animIDSpeed = Animator.StringToHash("Speed");
 			_animIDGrounded = Animator.StringToHash("Grounded");
-			_animIDJump = Animator.StringToHash("Jumping");
+			_animIDJump = Animator.StringToHash("Jump");
 			_animIDFreeFall = Animator.StringToHash("FreeFall");
 			_animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
 		}
@@ -357,8 +357,7 @@ namespace StarterAssets
 			switch (other.gameObject.name)
 			{
 				case "Button":
-					Debug.Log("hi");
-					if (Input.GetKeyDown(KeyCode.E))
+					if (_playerInput.actions["Use"].WasPerformedThisFrame())
 					{
 						//Debug.Log("hi");
 						buttonDoor.open();
@@ -371,29 +370,25 @@ namespace StarterAssets
 					}
 					break;
 				case "Mirror 1":
-					Debug.Log("hi");
-					if (Input.GetKeyDown(KeyCode.E))
+					if (_playerInput.actions["Use"].WasPerformedThisFrame())
                     {
 						mirror1.rotate();
                     }
 					break;
 				case "Mirror 2":
-					Debug.Log("hi");
-					if (Input.GetKeyDown(KeyCode.E))
+					if (_playerInput.actions["Use"].WasPerformedThisFrame())
 					{
 						mirror2.rotate();
 					}
 					break;
 				case "Mirror 3":
-					Debug.Log("hi");
-					if (Input.GetKeyDown(KeyCode.E))
+					if (_playerInput.actions["Use"].WasPerformedThisFrame())
 					{
 						mirror3.rotate();
 					}
 					break;
 				case "Mirror 4":
-					Debug.Log("hi");
-					if (Input.GetKeyDown(KeyCode.E))
+					if (_playerInput.actions["Use"].WasPerformedThisFrame())
 					{
 						mirror4.rotate();
 					}
