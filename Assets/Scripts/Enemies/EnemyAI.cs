@@ -52,8 +52,9 @@ public class EnemyAI : MonoBehaviour
         {
             if(recharge == false)
             {
+                
                 //attack code here
-                Debug.Log("player hit");
+                _animator.SetBool("Attack", true);
                 recharge = true;
                 StartCoroutine(Timer());
                 IEnumerator Timer()
@@ -62,6 +63,10 @@ public class EnemyAI : MonoBehaviour
                     recharge = false;
                 }
             }
+        }
+        else
+        {
+            _animator.SetBool("Attack", false);
         }
         
 

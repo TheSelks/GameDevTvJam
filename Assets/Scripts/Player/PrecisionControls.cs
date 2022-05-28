@@ -59,7 +59,7 @@ public class PrecisionControls : MonoBehaviour
         {
             default:
                 case State.Normal:
-                HandleGrappleStart();
+                // HandleGrappleStart();
 
                 Vector3 mouseWorldPosition = Vector3.zero;
 
@@ -93,62 +93,62 @@ public class PrecisionControls : MonoBehaviour
 
                 break;
 
-            case State.Grappling:
-                HandleGrappleMovement();
-                break;
+            //case State.Grappling:
+            //    HandleGrappleMovement();
+            //    break;
 
         }
     }
 
-    private void HandleGrappleStart()
-    {
-        if (GrappleInput())
-        {
-            if(Physics.Raycast(Camera.main.ScreenPointToRay(screenCentrePoint), out RaycastHit raycastHit))
-            {
-                thirdPersonController.enabled = false;
+    //private void HandleGrappleStart()
+    //{
+    //    if (GrappleInput())
+    //    {
+    //        if(Physics.Raycast(Camera.main.ScreenPointToRay(screenCentrePoint), out RaycastHit raycastHit))
+    //        {
+    //            thirdPersonController.enabled = false;
 
-                grapplePosition = raycastHit.point;
-                state = State.Grappling;
+    //            grapplePosition = raycastHit.point;
+    //            state = State.Grappling;
 
-                // Set gravity to 0 so that you can actually zoom to the grapple point
-                thirdPersonController.Gravity = 0f;
-                thirdPersonController.Grounded = false;
+    //            // Set gravity to 0 so that you can actually zoom to the grapple point
+    //            thirdPersonController.Gravity = 0f;
+    //            thirdPersonController.Grounded = false;
                 
-            }
-        }
-    }
+    //        }
+    //    }
+    //}
 
-    private void HandleGrappleMovement()
-    {
-        Vector3 grappleDirection = (grapplePosition - transform.position).normalized;
-        grappleSpeed = Mathf.Clamp(Vector3.Distance(transform.position, grapplePosition), grappleSpeedMin,
-            grappleSpeedMax);
+    //private void HandleGrappleMovement()
+    //{
+    //    Vector3 grappleDirection = (grapplePosition - transform.position).normalized;
+    //    grappleSpeed = Mathf.Clamp(Vector3.Distance(transform.position, grapplePosition), grappleSpeedMin,
+    //        grappleSpeedMax);
         
 
-        characterController.Move(grappleDirection * grappleSpeed * grappleSpeedMultiplier * Time.deltaTime);
+    //    characterController.Move(grappleDirection * grappleSpeed * grappleSpeedMultiplier * Time.deltaTime);
 
-        float reachedDistance = 2f;
-        if (Vector3.Distance(transform.position, grapplePosition) < reachedDistance)
-        {
-            CancelGrapple();
-        }
+    //    float reachedDistance = 2f;
+    //    if (Vector3.Distance(transform.position, grapplePosition) < reachedDistance)
+    //    {
+    //        CancelGrapple();
+    //    }
 
-        if (GrappleInput())
-        {
-            CancelGrapple();
-        }
-    }
+    //    if (GrappleInput())
+    //    {
+    //        CancelGrapple();
+    //    }
+    //}
 
-    private void CancelGrapple()
-    {
-        state = State.Normal;
-        thirdPersonController.Gravity = oldGravity;
-        thirdPersonController.enabled = true;
-    }
+    //private void CancelGrapple()
+    //{
+    //    state = State.Normal;
+    //    thirdPersonController.Gravity = oldGravity;
+    //    thirdPersonController.enabled = true;
+    //}
 
-    private bool GrappleInput()
-    {
-        return starterAssetsInputs.fire;
-    }
+    //private bool GrappleInput()
+    //{
+    //    return starterAssetsInputs.fire;
+    //}
 }
