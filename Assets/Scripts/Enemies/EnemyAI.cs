@@ -8,7 +8,9 @@ public class EnemyAI : MonoBehaviour
     public GameObject target;
     private NavMeshAgent agent;
     float enemyVisionDistance = 6.5f;
+    float enemyAttackDistance = 1.0f;
     float distanceToPlayer;
+    bool recharge;
     public List<Transform> patrolPoints;
     int patrolPointIndex;
     Vector3 patrolPointPosition;
@@ -20,6 +22,7 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         _animator = GetComponent<Animator>();
+        recharge = false;
     }
 
     void Update()
@@ -44,6 +47,22 @@ public class EnemyAI : MonoBehaviour
         {
             agent.SetDestination(target.transform.position);
         }
+
+        if (isPlayerInAttackDistance())
+        {
+            if(recharge == false)
+            {
+                //attack code here
+                Debug.Log("player hit");
+                recharge = true;
+                StartCoroutine(Timer());
+                IEnumerator Timer()
+                {
+                    yield return new WaitForSeconds(1.5f);
+                    recharge = false;
+                }
+            }
+        }
         
 
         _animator.SetFloat("Speed", agent.speed);
@@ -53,6 +72,12 @@ public class EnemyAI : MonoBehaviour
     {
         distanceToPlayer = (target.transform.position - transform.position).magnitude;
         return distanceToPlayer <= enemyVisionDistance;
+    }
+
+    bool isPlayerInAttackDistance()
+    {
+        distanceToPlayer = (target.transform.position - transform.position).magnitude;
+        return distanceToPlayer <= enemyAttackDistance;
     }
 }
 

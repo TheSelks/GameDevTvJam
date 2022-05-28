@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctRotation:
+  - 45
   - 225
   gameController: {fileID: 447872981}
   correct: 0
@@ -689,6 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctRotation:
   - 135
+  - 315
   gameController: {fileID: 447872981}
   correct: 0
 --- !u!65 &140518676
@@ -1154,6 +1156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctRotation:
   - 45
+  - 225
   gameController: {fileID: 447872981}
   correct: 0
 --- !u!65 &301684833
@@ -3989,6 +3992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctRotation:
+  - 135
   - 315
   gameController: {fileID: 447872981}
   correct: 0

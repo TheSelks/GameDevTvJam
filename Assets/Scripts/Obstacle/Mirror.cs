@@ -5,13 +5,11 @@ using UnityEngine;
 public class Mirror : MonoBehaviour
 {
     public float[] correctRotation;
-    int positiveRotations = 1;
     public GameController gameController;
     public bool correct = false;
 
     private void Awake()
     {
-        positiveRotations = correctRotation.Length;
         rotationCheck();
     }
     private void positivePlacementResult()
@@ -19,20 +17,20 @@ public class Mirror : MonoBehaviour
         correct = true;
         gameController.mirrorCorrect();
     }
-    private void positivePlacementResultChanged(bool correct)
+    private void positivePlacementResultChanged()
     {
         correct = false;
         gameController.mirrorWrong();
     }
     private void rotationCheck()
     {
-        if (Mathf.RoundToInt(transform.eulerAngles.y) == correctRotation[0] && correct == false)
+        if (Mathf.RoundToInt(transform.eulerAngles.y) == correctRotation[0] || Mathf.RoundToInt(transform.eulerAngles.y) == correctRotation[1] && correct == false)
         {
             positivePlacementResult();
         }
         else if (correct == true)
         {
-            positivePlacementResultChanged(correct);
+            positivePlacementResultChanged();
         }
     }
     public void rotate()
