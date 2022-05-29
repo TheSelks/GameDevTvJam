@@ -40,7 +40,7 @@ public class EnemyAI : MonoBehaviour
 
             patrolPointPosition = patrolPoints[patrolPointIndex].position;
         }
-
+        
         agent.SetDestination(patrolPointPosition);
 
         if (isPlayerInVisionDistance())
@@ -52,24 +52,20 @@ public class EnemyAI : MonoBehaviour
         {
             if(recharge == false)
             {
-                
+                agent.speed = 0f;
                 //attack code here
                 _animator.SetBool("Attack", true);
                 recharge = true;
                 StartCoroutine(Timer());
                 IEnumerator Timer()
                 {
-                    yield return new WaitForSeconds(1.5f);
+                    yield return new WaitForSeconds(4.933f);
+                    _animator.SetBool("Attack", false);
                     recharge = false;
+                    agent.speed = 2.0f;
                 }
             }
         }
-        else
-        {
-            _animator.SetBool("Attack", false);
-        }
-        
-
         _animator.SetFloat("Speed", agent.speed);
     }
 
