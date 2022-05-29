@@ -6,7 +6,12 @@ public class GameController : MonoBehaviour
 {
     public int correctMirrors = 0;
     public MirrorDoor mirrorDoor;
+    public Mirror firstMirror;
 
+    private void Start()
+    {
+        firstMirror.activateMirror();
+    }
     public void mirrorCorrect()
     {
         correctMirrors += 1;
@@ -19,11 +24,11 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (correctMirrors == 4)
+        if (correctMirrors == 5)
         {
             mirrorDoor.open();
         }
-        else if (correctMirrors < 4)
+        else if (correctMirrors < 5)
         {
             mirrorDoor.closed();
         }

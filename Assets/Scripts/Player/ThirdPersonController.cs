@@ -105,6 +105,7 @@ namespace StarterAssets
 		public Mirror mirror2;
 		public Mirror mirror3;
 		public Mirror mirror4;
+		public Mirror mirror5;
 
         private Health health;
 
@@ -362,7 +363,7 @@ namespace StarterAssets
 						StartCoroutine(Timer());
 						IEnumerator Timer()
 						{
-							yield return new WaitForSeconds(5f);
+							yield return new WaitForSeconds(6f);
 							buttonDoor.closed();
 						}
 					}
@@ -389,6 +390,12 @@ namespace StarterAssets
 					if (_playerInput.actions["Use"].WasPerformedThisFrame())
 					{
 						mirror4.rotate();
+					}
+					break;
+				case "Mirror 5":
+					if (_playerInput.actions["Use"].WasPerformedThisFrame())
+					{
+						mirror5.rotate();
 					}
 					break;
             }

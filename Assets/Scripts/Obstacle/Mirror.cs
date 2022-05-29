@@ -7,15 +7,28 @@ public class Mirror : MonoBehaviour
     public float[] correctRotation;
     public GameController gameController;
     public bool correct = false;
+    public bool canMove;
+    public Mirror nextMirror;
+    public GameObject lightBeam;
 
     private void Awake()
     {
         rotationCheck();
+        canMove = false;
+        lightBeam.SetActive(false);
     }
     private void positivePlacementResult()
     {
         correct = true;
+        canMove = false;
         gameController.mirrorCorrect();
+        nextMirror.activateMirror();
+        lightBeam.SetActive(true);
+    }
+
+    public void activateMirror()
+    {
+        canMove = true;
     }
     private void positivePlacementResultChanged()
     {
@@ -36,7 +49,10 @@ public class Mirror : MonoBehaviour
     public void rotate()
     {
         Debug.Log("work");
-        transform.Rotate(new Vector3(0, 45, 0));
-        rotationCheck();
+        if (canMove == true)
+        {
+            transform.Rotate(new Vector3(0, 90, 0));
+            rotationCheck();
+        }
     }
 }
