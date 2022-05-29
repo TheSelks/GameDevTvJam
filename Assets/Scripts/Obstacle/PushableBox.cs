@@ -5,22 +5,22 @@ using UnityEngine;
 public class PushableBox : MonoBehaviour
 {
     public PressureDoor pressureDoor;
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         switch (other.gameObject.name)
         {
             case "Pressure Plate 1":
-                pressureDoor.open();
+                pressureDoor.Open();
                 break;
         }
     }
 
-    private void OnCollisionExit(Collision other)
+    private void OnTriggerExit(Collider other)
     {
         switch (other.gameObject.name)
         {
             case "Pressure Plate 1":
-                pressureDoor.closed();
+                pressureDoor.Closed();
                 break;
         }
     }
