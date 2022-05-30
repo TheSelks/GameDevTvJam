@@ -3,17 +3,22 @@ using UnityEngine;
 
 public class SceneManager : MonoBehaviour
 {
-    public void FirstLevel()
+    public void MainMenu()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
-    public void SecondLevel()
+    public void FirstLevel()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
 
-    public void ThirdLevel()
+    public void Instructions()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
+
+    public void GameOver()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(3);
     }

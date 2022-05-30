@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     public Image[] amulets;
     public Sprite goodAmulet;
     public Sprite gubbedAmulet;
+    [SerializeField] private SceneManager sceneManager;
 
     void Update()
     {
@@ -49,6 +50,6 @@ public class Health : MonoBehaviour
 
     private void Dead()
     {
-        // Game Over link
+        sceneManager.GameOver();
     }
 }
