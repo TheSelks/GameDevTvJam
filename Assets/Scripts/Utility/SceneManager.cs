@@ -23,6 +23,21 @@ public class SceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(3);
     }
 
+    public void Credits()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(4);
+    }
+
+    public void Story()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(5);
+    }
+
+    public void Victory()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(6);
+    }
+
     public void ExitGame()
     {
         Application.Quit();

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 74040824}
   - component: {fileID: 74040823}
   - component: {fileID: 74040822}
+  - component: {fileID: 74040825}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -206,13 +207,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 693095680}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 74040825}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: Credits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -256,6 +257,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74040820}
   m_CullTransparentMesh: 1
+--- !u!114 &74040825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74040820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00502eef924c90f4092210d1b003cff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &144528773
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +853,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 693095681}
         m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
-        m_MethodName: FirstLevel
+        m_MethodName: Story
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

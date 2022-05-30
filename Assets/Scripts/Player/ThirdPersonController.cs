@@ -475,6 +475,11 @@ namespace StarterAssets
 						}
 					}
 					break;
+				case "Victory Trigger":
+					{
+						UnityEngine.SceneManagement.SceneManager.LoadScene(6);
+					}
+					break;
 			}
         }
 
