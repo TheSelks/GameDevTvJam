@@ -109,6 +109,15 @@ namespace StarterAssets
 
         private Health health;
 
+		private bool stone1;
+		private bool stone2;
+		private bool stone3;
+		private bool stone4;
+		private bool stone5;
+		private bool stone6;
+
+		public GameController gameController;
+
 		private void Awake()
 		{
 			health = GetComponent<Health>();
@@ -131,6 +140,13 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
+			stone1 = true;
+			stone2 = true;
+			stone3 = true;
+			stone4 = true;
+			stone5 = true;
+			stone6 = true;
 		}
 
 		private void Update()
@@ -399,7 +415,67 @@ namespace StarterAssets
 						mirror5.rotate();
 					}
 					break;
-            }
+				case "Dog 1":
+					if (_input.use)
+                    {
+						if(stone1 == true)
+                        {
+							gameController.statueActivated();
+							stone1 = false;
+                        }
+                    }
+					break;
+				case "Dog 2":
+					if (_input.use)
+                    {
+						if(stone2 == true)
+                        {
+							gameController.statueActivated();
+							stone2 = false;
+                        }
+                    }
+					break;
+				case "Dog 3":
+					if (_input.use)
+					{
+						if (stone3 == true)
+						{
+							gameController.statueActivated();
+							stone3 = false;
+						}
+					}
+					break;
+				case "Dog 4":
+					if (_input.use)
+					{
+						if (stone4 == true)
+						{
+							gameController.statueActivated();
+							stone4 = false;
+						}
+					}
+					break;
+				case "Dog 5":
+					if (_input.use)
+					{
+						if (stone5 == true)
+						{
+							gameController.statueActivated();
+							stone5 = false;
+						}
+					}
+					break;
+				case "Dog 6":
+					if (_input.use)
+					{
+						if (stone6 == true)
+						{
+							gameController.statueActivated();
+							stone6 = false;
+						}
+					}
+					break;
+			}
         }
 
 

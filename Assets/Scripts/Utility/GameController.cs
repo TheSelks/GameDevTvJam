@@ -5,8 +5,10 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public int correctMirrors = 0;
+    public int activatedStatues = 0;
     public MirrorDoor mirrorDoor;
     public Mirror firstMirror;
+    public StatueDoor statueDoor;
 
     private void Start()
     {
@@ -21,6 +23,10 @@ public class GameController : MonoBehaviour
     {
         correctMirrors -= 1;
     }
+    public void statueActivated()
+    {
+        activatedStatues += 1;
+    }
 
     private void Update()
     {
@@ -31,6 +37,11 @@ public class GameController : MonoBehaviour
         else if (correctMirrors < 5)
         {
             mirrorDoor.closed();
+        }
+
+        if (activatedStatues == 6)
+        {
+            statueDoor.open();
         }
     }
 }
