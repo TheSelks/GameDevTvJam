@@ -14,7 +14,7 @@ public class CanopicJars : MonoBehaviour
         {
             collectedJar.gameObject.SetActive(true);
             Debug.Log("CanopicCollected");
-            Destroy(gameObject.transform.parent.gameObject);
+            Destroy(gameObject);
         }
     }
 }
