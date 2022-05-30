@@ -4,30 +4,26 @@ using UnityEngine;
 
 public class MirrorDoor : MonoBehaviour
 {
-    public Transform startMarker;
-    public Transform endMarker;
-    public float speed = 1f;
-    private float startTime;
-    private float journeyLength;
+    private Animator _mirrorDoorAnim;
 
     private void Start()
     {
-        startTime = Time.time;
-        journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
+        _mirrorDoorAnim = GetComponent<Animator>();
     }
 
-    public void open()
+    public void Open()
     {
-        float distCovered = (Time.time - startTime) * speed;
-        float fractionOfJourney = distCovered / journeyLength;
-        transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
+        _mirrorDoorAnim.SetTrigger("OpenDoor");
     }
 
-    public void closed()
+    public void Closed()
     {
-        float distCovered = (Time.time - startTime) * speed;
-        float fractionOfJourney = distCovered / journeyLength;
-        transform.position = Vector3.Lerp(endMarker.position, startMarker.position, fractionOfJourney);
+        _mirrorDoorAnim.enabled = true;
+    }
+
+    public void AnimationPause()
+    {
+        _mirrorDoorAnim.enabled = false;
     }
 
 }

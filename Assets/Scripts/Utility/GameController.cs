@@ -32,11 +32,11 @@ public class GameController : MonoBehaviour
     {
         if (correctMirrors == 5)
         {
-            mirrorDoor.open();
+            mirrorDoor.Open();
         }
         else if (correctMirrors < 5)
         {
-            mirrorDoor.closed();
+            mirrorDoor.Closed();
         }
 
         if (activatedStatues == 6)
