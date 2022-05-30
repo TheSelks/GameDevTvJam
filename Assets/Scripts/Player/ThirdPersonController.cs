@@ -111,14 +111,29 @@ namespace StarterAssets
 
         private Health health;
 
-		private bool stone1;
-		private bool stone2;
-		private bool stone3;
-		private bool stone4;
-		private bool stone5;
-		private bool stone6;
+		public bool stone1;
+		public bool stone2;
+        public bool stone3;
+        public bool stone4;
+        public bool stone5;
+        public bool stone6;
 
-		public GameController gameController;
+        [SerializeField] private GameObject stone1Visual;
+        [SerializeField] private GameObject stone2Visual;
+        [SerializeField] private GameObject stone3Visual;
+        [SerializeField] private GameObject stone4Visual;
+        [SerializeField] private GameObject stone5Visual;
+        [SerializeField] private GameObject stone6Visual;
+
+        [SerializeField] private GameObject stone1UI;
+        [SerializeField] private GameObject stone2UI;
+        [SerializeField] private GameObject stone3UI;
+        [SerializeField] private GameObject stone4UI;
+        [SerializeField] GameObject stone5UI;
+        [SerializeField] GameObject stone6UI;
+
+
+        public GameController gameController;
 
         [SerializeField] private TextMeshProUGUI instructionText;
 
@@ -380,7 +395,7 @@ namespace StarterAssets
 
         private void OnTriggerEnter(Collider other)
         {
-            instructionText.gameObject.SetActive(true);
+            
         }
 
         private void OnTriggerStay(Collider other)
@@ -388,7 +403,7 @@ namespace StarterAssets
 			switch (other.gameObject.name)
             {
                 case "Button":
-                    
+                    instructionText.gameObject.SetActive(true);
 					if (_input.use)
 					{
 						Debug.Log("hi");
@@ -402,6 +417,7 @@ namespace StarterAssets
 					}
 					break;
 				case "Mirror 1":
+                    instructionText.gameObject.SetActive(true);
 					if (_input.use)
                     {
 						print("Mirror 1");
@@ -409,86 +425,108 @@ namespace StarterAssets
                     }
 					break;
 				case "Mirror 2":
+                    instructionText.gameObject.SetActive(true);
 					if (_input.use)
 					{
 						mirror2.rotate();
 					}
 					break;
 				case "Mirror 3":
+                    instructionText.gameObject.SetActive(true);
 					if (_input.use)
 					{
 						mirror3.rotate();
 					}
 					break;
 				case "Mirror 4":
+                    instructionText.gameObject.SetActive(true);
 					if (_input.use)
 					{
 						mirror4.rotate();
 					}
 					break;
 				case "Mirror 5":
+                    instructionText.gameObject.SetActive(true);
 					if (_input.use)
 					{
 						mirror5.rotate();
 					}
 					break;
 				case "Dog 1":
+                    instructionText.gameObject.SetActive(true);
 					if (_input.use)
                     {
 						if(stone1 == true)
                         {
 							gameController.statueActivated();
 							stone1 = false;
+                            stone1UI.gameObject.SetActive(false);
+							stone1Visual.gameObject.SetActive(true);
                         }
                     }
 					break;
 				case "Dog 2":
+                    instructionText.gameObject.SetActive(true);
 					if (_input.use)
                     {
 						if(stone2 == true)
                         {
 							gameController.statueActivated();
 							stone2 = false;
-                        }
+                            stone2UI.gameObject.SetActive(false);
+                            stone2Visual.gameObject.SetActive(true);
+						}
                     }
 					break;
 				case "Dog 3":
+                    instructionText.gameObject.SetActive(true);
 					if (_input.use)
 					{
 						if (stone3 == true)
 						{
 							gameController.statueActivated();
 							stone3 = false;
+                            stone3UI.gameObject.SetActive(false);
+                            stone3Visual.gameObject.SetActive(true);
 						}
 					}
 					break;
 				case "Dog 4":
+                    instructionText.gameObject.SetActive(true);
 					if (_input.use)
 					{
 						if (stone4 == true)
 						{
 							gameController.statueActivated();
 							stone4 = false;
+                            stone4UI.gameObject.SetActive(false);
+                            stone4Visual.gameObject.SetActive(true);
 						}
 					}
 					break;
 				case "Dog 5":
+                    instructionText.gameObject.SetActive(true);
 					if (_input.use)
 					{
 						if (stone5 == true)
 						{
 							gameController.statueActivated();
 							stone5 = false;
+                            stone5UI.gameObject.SetActive(false);
+                            stone5Visual.gameObject.SetActive(true);
 						}
 					}
 					break;
 				case "Dog 6":
+                    instructionText.gameObject.SetActive(true);
 					if (_input.use)
 					{
 						if (stone6 == true)
 						{
 							gameController.statueActivated();
 							stone6 = false;
+                            stone6UI.gameObject.SetActive(false);
+                            stone6Visual.gameObject.SetActive(true);
 						}
 					}
 					break;

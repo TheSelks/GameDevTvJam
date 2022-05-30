@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class CanopicJars : MonoBehaviour
 {
-   // [SerializeField] private Image thisJar;
+    [SerializeField] private Image collectedJar;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-           // thisJar.enabled = true;
+            collectedJar.gameObject.SetActive(true);
             Debug.Log("CanopicCollected");
             Destroy(gameObject.transform.parent.gameObject);
         }

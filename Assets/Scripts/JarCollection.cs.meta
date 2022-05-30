@@ -3,7 +3,11 @@ guid: 9a4e6bbdc66c483428c164874a131627
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - monkey: {instanceID: 0}
+  - human: {instanceID: 0}
+  - bird: {instanceID: 0}
+  - jackal: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
