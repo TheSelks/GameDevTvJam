@@ -83,7 +83,42 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: sekhmetUVD(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: headdress
+      parentName: sekhmetUVD(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: body19049
+      parentName: sekhmetUVD(Clone)
+      position: {x: 0.010865088, y: 0, z: 0.008736327}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: hairpiece
+      parentName: sekhmetUVD(Clone)
+      position: {x: 0.0073616826, y: 3.8529067, z: 0.08860861}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: clothes
+      parentName: sekhmetUVD(Clone)
+      position: {x: 0.008215486, y: 0, z: 0.04337177}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: eye1
+      parentName: sekhmetUVD(Clone)
+      position: {x: 0.24157262, y: 3.8320584, z: 0.57607496}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 11.135833, y: 11.135833, z: 11.135833}
+    - name: eye
+      parentName: sekhmetUVD(Clone)
+      position: {x: -0.24148755, y: 3.8320584, z: 0.57607496}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 11.135833, y: 11.135833, z: 11.135833}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -94,13 +129,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 0d786903a2608ff4e8de6c52037c6aa6, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
