@@ -61,12 +61,12 @@
                 },
                 {
                     "name": "Use",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "d7132ac3-3814-4f19-93fe-19e6aeaf9cad",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [

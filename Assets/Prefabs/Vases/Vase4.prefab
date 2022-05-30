@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1929511483700924191}
   - component: {fileID: 2314465898888755412}
   - component: {fileID: 5339641809666621436}
+  - component: {fileID: 238289159831472137}
   m_Layer: 0
   m_Name: Vase4
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &238289159831472137
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619617641007494313}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8495400539665325205, guid: c78c9264502b21c4aaf026f70e958c73, type: 3}
 --- !u!1 &7577612036320087954
 GameObject:
   m_ObjectHideFlags: 0

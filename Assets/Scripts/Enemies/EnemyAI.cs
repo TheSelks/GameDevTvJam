@@ -59,7 +59,7 @@ public class EnemyAI : MonoBehaviour
                 StartCoroutine(Timer());
                 IEnumerator Timer()
                 {
-                    yield return new WaitForSeconds(4.933f);
+                    yield return new WaitForSeconds(1f);
                     _animator.SetBool("Attack", false);
                     recharge = false;
                     agent.speed = 2.0f;

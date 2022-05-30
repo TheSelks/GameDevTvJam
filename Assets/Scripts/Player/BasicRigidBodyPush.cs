@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using StarterAssets;
+using UnityEngine;
 
 public class BasicRigidBodyPush : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class BasicRigidBodyPush : MonoBehaviour
 	[Range(0.5f, 5f)] public float strength = 1.1f;
 
 	private void OnControllerColliderHit(ControllerColliderHit hit)
-	{
+    {
 		if (canPush) PushRigidBodies(hit);
         
 	}
@@ -27,10 +28,10 @@ public class BasicRigidBodyPush : MonoBehaviour
 		// We dont want to push objects below us
 		if (hit.moveDirection.y < -0.3f) return;
 
-		// Calculate push direction from move direction, horizontal motion only
-		Vector3 pushDir = new Vector3(hit.moveDirection.x, 0.0f, hit.moveDirection.z);
-		
-		// Apply the push and take strength into account
-		body.AddForce(pushDir * strength, ForceMode.Impulse);
-	}
+        Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
+        forceDirection.y = 0;
+		forceDirection.Normalize();
+
+		body.AddForceAtPosition(forceDirection * strength, transform.position, ForceMode.Impulse);
+    }
 }

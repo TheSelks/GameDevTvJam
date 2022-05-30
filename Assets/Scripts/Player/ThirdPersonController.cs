@@ -369,31 +369,32 @@ namespace StarterAssets
 					}
 					break;
 				case "Mirror 1":
-					if (_playerInput.actions["Use"].WasPerformedThisFrame())
+					if (_input.use)
                     {
+						print("Mirror 1");
 						mirror1.rotate();
                     }
 					break;
 				case "Mirror 2":
-					if (_playerInput.actions["Use"].WasPerformedThisFrame())
+					if (_input.use)
 					{
 						mirror2.rotate();
 					}
 					break;
 				case "Mirror 3":
-					if (_playerInput.actions["Use"].WasPerformedThisFrame())
+					if (_input.use)
 					{
 						mirror3.rotate();
 					}
 					break;
 				case "Mirror 4":
-					if (_playerInput.actions["Use"].WasPerformedThisFrame())
+					if (_input.use)
 					{
 						mirror4.rotate();
 					}
 					break;
 				case "Mirror 5":
-					if (_playerInput.actions["Use"].WasPerformedThisFrame())
+					if (_input.use)
 					{
 						mirror5.rotate();
 					}
