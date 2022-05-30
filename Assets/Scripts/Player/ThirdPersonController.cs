@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
@@ -118,6 +120,10 @@ namespace StarterAssets
 
 		public GameController gameController;
 
+        [SerializeField] private TextMeshProUGUI instructionText;
+
+        private SceneManager sceneManager;
+
 		private void Awake()
 		{
 			health = GetComponent<Health>();
@@ -156,6 +162,11 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+
+            if (_input.escape)
+            {
+				sceneManager.MainMenu();
+            }
 		}
 
         private void LateUpdate()
@@ -367,14 +378,20 @@ namespace StarterAssets
             _rotateOnMove = newRotateOnMove;
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            instructionText.gameObject.SetActive(true);
+        }
+
         private void OnTriggerStay(Collider other)
         {
 			switch (other.gameObject.name)
-			{
-				case "Button":
-					if (_playerInput.actions["Use"].WasPerformedThisFrame())
+            {
+                case "Button":
+                    
+					if (_input.use)
 					{
-						//Debug.Log("hi");
+						Debug.Log("hi");
 						buttonDoor.open();
 						StartCoroutine(Timer());
 						IEnumerator Timer()
@@ -481,6 +498,11 @@ namespace StarterAssets
 					}
 					break;
 			}
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            instructionText.gameObject.SetActive(false);
         }
 
 

@@ -15,6 +15,7 @@ namespace StarterAssets
         public bool aim;
         public bool fire;
         public bool use;
+        public bool escape;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -64,6 +65,11 @@ namespace StarterAssets
             UseInput(value.isPressed);
         }
 
+        public void OnEscape1(InputValue value)
+        {
+            UseInput(value.isPressed);
+        }
+
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -102,6 +108,11 @@ namespace StarterAssets
         private void UseInput(bool newUseState)
         {
             use = newUseState;
+        }
+
+        private void UseEscape(bool newUseState)
+        {
+            escape = newUseState;
         }
 
 #if !UNITY_IOS || !UNITY_ANDROID
