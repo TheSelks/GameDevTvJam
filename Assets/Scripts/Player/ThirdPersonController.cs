@@ -159,13 +159,6 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
-
-			stone1 = true;
-			stone2 = true;
-			stone3 = true;
-			stone4 = true;
-			stone5 = true;
-			stone6 = true;
 		}
 
 		private void Update()
